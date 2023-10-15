@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Bot {
     private boolean isRunning;
@@ -12,18 +11,33 @@ public class Bot {
     public boolean getisRunning() {
         return isRunning;
     }
+    private boolean isInt(String a){
+        try {
+            int b = Integer.parseInt(a);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    private boolean isDouble(String a){
+        try {
+            double b = Double.parseDouble(a);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    public String start(String input) {
 
-    public String start() {
-        Scanner scan = new Scanner(System.in);
-        String input = scan.nextLine();
+
         if (input.equals("/simple")) {
             if (start == false) {
                 stepbystep = false;
                 start = true;
                 return "write me line";
             }
-            if (start = true)
-                return "bot is working, write me line";
+            if (start)
+                return "simple is on, write me line";
         }
         if (input.equals("/stepbystep")) {
             if (stepbystep == false) {
@@ -31,7 +45,7 @@ public class Bot {
                 stepbystep = true;
                 return "write me line";
             }
-            if (stepbystep == true) {
+            if (stepbystep) {
                 return "stepbystep is on, write me line";
             }
         }
@@ -40,26 +54,26 @@ public class Bot {
             return "bot stopped";
         }
         if (input.equals("/help"))
-            return "commands: /simple, /help, /stop\nI can say what type of thing you write to me\n/simple - check the whole line\n/stepbystep - check symbol by symbol";
-        if (start == true) {
-            if (new Scanner(input).hasNextLong() == true) {
-                return input + " - int";
+            return "commands: /simple, /stepbystep, /help, /stop\nI can say what type of thing you write to me\n/simple - check the whole line\n/stepbystep - check symbol by symbol";
+        if (start) {
+            if (isInt(input)) {
+                return Integer.parseInt(input) + " - int";
             }
-            if (new Scanner(input).hasNextDouble() == true) {
-                return input + " - float";
+            if (isDouble(input)) {
+                return Double.parseDouble(input) + " - double";
             }
-            if (new Scanner(input).hasNextLine() == true) {
+            if (!input.isEmpty()) {
                 return input + " - String";
             }
             return "commands: /simple, /stepbystep, /help, /stop";
         }
-        if (stepbystep == true) {
+        if (stepbystep) {
             String numb = "";
             String str = "";
             int count = 0;
             String out = "";
             for (String i : input.split("")) {
-                if (new Scanner(i).hasNextLong() == true) {
+                if (isInt(i)) {
                     numb += i;
                     continue;
                 }
@@ -67,14 +81,14 @@ public class Bot {
                     count += 1;
                     continue;
                 }
-                if (new Scanner(input).hasNextLine() == true) {
+                if (!i.isEmpty()) {
                     str += i;
                     continue;
                 }
             }
-            if (numb.length() > 0)
+            if (!numb.isEmpty())
                 out += numb + " - int\n";
-            if (str.length() > 0)
+            if (!str.isEmpty())
                 out += str + " - char\n";
             if (count > 0)
                 out += "\" \" - " + count;
