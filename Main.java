@@ -5,7 +5,6 @@ public class Main {
                 "For more information: \"/help\"\n" +
                 "For start: \"/simple\" or \"/stepbystep\"\n" +
                 "For stop: \"/stop\"");
-        System.out.print("ya sdelal\'");
         Bot bot = new Bot();
         while (bot.getisRunning() == true) {
             System.out.println(bot.start());
