@@ -1,3 +1,4 @@
 *.class
 test.java
-.gitignore
+*.gitignore
+*.git*
