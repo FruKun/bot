@@ -10,7 +10,6 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         while (bot.getisRunning()) {
             System.out.println(bot.start(scan.nextLine()));
-
         }
         scan.close();
     }
