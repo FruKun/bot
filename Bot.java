@@ -16,7 +16,7 @@ public class Bot {
     }
     private boolean isInt(String a){
         try {
-            int b = Integer.parseInt(a);
+            Integer.parseInt(a);
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -24,7 +24,7 @@ public class Bot {
     }
     private boolean isDouble(String a){
         try {
-            double b = Double.parseDouble(a);
+            Double.parseDouble(a);
             return true;
         } catch (NumberFormatException e) {
             return false;
