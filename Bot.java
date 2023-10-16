@@ -1,11 +1,14 @@
 
+
 public class Bot {
     private boolean isRunning;
-    private boolean start = false;
-    private boolean stepbystep = false;
+    private boolean start;
+    private boolean stepbystep;
 
     public Bot() {
         isRunning = true;
+        start = false;
+        stepbystep = false;
     }
 
     public boolean getisRunning() {
