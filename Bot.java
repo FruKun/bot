@@ -1,5 +1,4 @@
 
-
 public class Bot {
     private boolean isRunning;
     private boolean start;
@@ -14,7 +13,8 @@ public class Bot {
     public boolean getisRunning() {
         return isRunning;
     }
-    private boolean isInt(String a){
+
+    private boolean isInt(String a) {
         try {
             Integer.parseInt(a);
             return true;
@@ -22,7 +22,8 @@ public class Bot {
             return false;
         }
     }
-    private boolean isDouble(String a){
+
+    private boolean isDouble(String a) {
         try {
             Double.parseDouble(a);
             return true;
@@ -30,8 +31,8 @@ public class Bot {
             return false;
         }
     }
-    public String start(String input) {
 
+    public String start(String input) {
 
         if (input.equals("/simple")) {
             if (start == false) {
@@ -95,7 +96,9 @@ public class Bot {
                 out += str + " - char\n";
             if (count > 0)
                 out += "\" \" - " + count;
-            return out;
+            if (!out.isEmpty())
+                return out;
+            return "commands: /simple, /stepbystep, /help, /stop";
         }
         return "commands: /simple, /stepbystep, /help, /stop";
 
