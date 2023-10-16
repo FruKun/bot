@@ -12,5 +12,6 @@ public class Main {
             System.out.println(bot.start(scan.nextLine()));
 
         }
+        scan.close();
     }
 }
