@@ -1,13 +1,13 @@
 
 public class Bot {
     private boolean isRunning;
-    private boolean start;
-    private boolean stepbystep;
+    private boolean simple;
+    private boolean StepByStep;
 
     public Bot() {
         isRunning = true;
-        start = false;
-        stepbystep = false;
+        simple = false;
+        StepByStep = false;
     }
 
     public boolean getisRunning() {
@@ -35,22 +35,22 @@ public class Bot {
     public String start(String input) {
 
         if (input.equals("/simple")) {
-            if (start == false) {
-                stepbystep = false;
-                start = true;
+            if (simple == false) {
+                StepByStep = false;
+                simple = true;
                 return "write me line";
             }
-            if (start)
+            if (simple)
                 return "simple is on, write me line";
         }
-        if (input.equals("/stepbystep")) {
-            if (stepbystep == false) {
-                start = false;
-                stepbystep = true;
+        if (input.equals("/StepByStep")) {
+            if (StepByStep == false) {
+                simple = false;
+                StepByStep = true;
                 return "write me line";
             }
-            if (stepbystep) {
-                return "stepbystep is on, write me line";
+            if (StepByStep) {
+                return "StepByStep is on, write me line";
             }
         }
         if (input.equals("/stop")) {
@@ -58,8 +58,8 @@ public class Bot {
             return "bot stopped";
         }
         if (input.equals("/help"))
-            return "commands: /simple, /stepbystep, /help, /stop\nI can say what type of thing you write to me\n/simple - check the whole line\n/stepbystep - check symbol by symbol";
-        if (start) {
+            return "commands: /simple, /StepByStep, /help, /stop\nI can say what type of thing you write to me\n/simple - check the whole line\n/StepByStep - check symbol by symbol";
+        if (simple) {
             if (isInt(input)) {
                 return Integer.parseInt(input) + " - int";
             }
@@ -69,9 +69,9 @@ public class Bot {
             if (!input.isEmpty()) {
                 return input + " - String";
             }
-            return "commands: /simple, /stepbystep, /help, /stop";
+            return "commands: /simple, /StepByStep, /help, /stop";
         }
-        if (stepbystep) {
+        if (StepByStep) {
             String numb = "";
             String str = "";
             int count = 0;
@@ -98,9 +98,8 @@ public class Bot {
                 out += "\" \" - " + count;
             if (!out.isEmpty())
                 return out;
-            return "commands: /simple, /stepbystep, /help, /stop";
         }
-        return "commands: /simple, /stepbystep, /help, /stop";
+        return "commands: /simple, /StepByStep, /help, /stop";
 
     }
 }
