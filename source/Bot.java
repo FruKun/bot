@@ -1,4 +1,3 @@
-
 public class Bot {
     private boolean isRunning;
     private boolean simple;
