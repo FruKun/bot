@@ -1,0 +1,5 @@
+*.class
+/tests
+/lib
+/.idea
+/out
